@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import (  # ListView,
-    # CreateView,
+from django.views.generic import (
     UpdateView,
     DeleteView
 )
@@ -21,18 +20,6 @@ def index(request):
         else:
             new_book.save()
     return render(request, 'home.html', {'books': books})
-
-
-# class BookListView(ListView):
-#     model = Book
-#     template_name = 'home.html'
-
-
-# class BookCreateView(CreateView):
-#     model = Book
-#     template_name = 'create.html'
-#     fields = ['name', 'author', 'description']
-#     success_url = reverse_lazy('home')
 
 
 class BookUpdateView(UpdateView):

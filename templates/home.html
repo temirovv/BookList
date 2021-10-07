@@ -25,18 +25,6 @@
     </header><!-- /header -->
     </div>
 
-<!--     <div>
-        {% for book in books %}
-            <i><p>{{book.name}}</p></i>
-            <b><p>{{book.author}}</p></b>
-            <i><p>{{book.description}}</p></i>
-            <a href="{% url 'update' book.pk %}" title="">Edit</a>|
-            <a href="{% url 'delete' book.pk %}" title="">Delete</a>
-            <hr>
-        {% empty %}
-            <i><p>Bu yerda hozircha kitoblar yuq</p></i>
-        {% endfor %}
-    </div> -->
     <div class="container">
     <table class="table table-hover">
         <caption>Number of books: {{books|length}}</caption>

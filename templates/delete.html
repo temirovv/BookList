@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">        
+    	<h1>Bu kitobni rostan ham o'chirmoqchimisiz</h1>
+        <form method="post" accept-charset="utf-8">
+    	   {% csrf_token %}
+    	   <input type="submit" name="Delete Button" value="Ha">
+            <button type="submit"><a style="text-decoration: None;" href="{% url 'home' %}" title="">Yo'q</a></button>
+        </form>
+    </div>
+{% endblock content %}

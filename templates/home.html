@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="header">
+    <header id="header" class="">
+        <form method="post" accept-charset="utf-8" class="form-inline">
+           {% csrf_token %}
+           <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" name="name" placeholder="name" id="name">
+           </div>
+           <div class="form-group">
+                <label for="author">Author: </label>
+                <input type="text" name="author" placeholder="author" id="author"> 
+           </div>
+           <div class="form-group">
+                <label for="description">Description: </label>
+                <input type="text" name="description" placeholder="description" id="description">
+           </div>
+           <div class="form-group">
+               <button type="submit" class="btn btn-primary">Save</button>
+           </div>
+        </form>
+        <hr style="color: blue; background-color: darkblue" size="20">
+    </header><!-- /header -->
+    </div>
+
+<!--     <div>
+        {% for book in books %}
+            <i><p>{{book.name}}</p></i>
+            <b><p>{{book.author}}</p></b>
+            <i><p>{{book.description}}</p></i>
+            <a href="{% url 'update' book.pk %}" title="">Edit</a>|
+            <a href="{% url 'delete' book.pk %}" title="">Delete</a>
+            <hr>
+        {% empty %}
+            <i><p>Bu yerda hozircha kitoblar yuq</p></i>
+        {% endfor %}
+    </div> -->
+    <div class="container">
+    <table class="table table-hover">
+        <caption>Number of books: {{books|length}}</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{book.name}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.description}}</td>
+                    <td><a href="{% url 'update' book.pk %}" title="">Edit</a></td>
+                    <td><a href="{% url 'delete' book.pk %}" title="">Delete</a></td>
+                </tr>
+            {% empty %}
+                <h1>Sorry there is no any book</h1>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock content %}
